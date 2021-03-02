@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import com.bah.msd.mcc.logging.ApiLogger;
 import com.bah.msd.mcc.util.JWTHelper;
 
 
@@ -71,17 +72,16 @@ public class AuthFilter implements Filter{
 
 	}
 	
-	//For logging the api calls
-//	@Override
-//	public void init(FilterConfig filterConfig) throws ServletException {
-//		ApiLogger.log("AuthFilter.init");
-//		
-//	}
-//
-//	@Override
-//	public void destroy() {
-//		ApiLogger.log("AuthFilter.destroy");	
-//	}
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		ApiLogger.log("AuthFilter.init");
+		
+	}
+
+	@Override
+	public void destroy() {
+		ApiLogger.log("AuthFilter.destroy");	
+	}
 
 	/*
 	 * public boolean verifyToken(String token) { try {
